@@ -7,6 +7,7 @@ export default function ItemMenu({
   price,
   id,
   color,
+  added=false,
   onAdd,
 }: {
   imageUrl: string;
@@ -14,6 +15,7 @@ export default function ItemMenu({
   id: number;
   price: number;
   color: string;
+  added?:boolean;
   onAdd: (id: number) => void;
 }) {
   const handleAdd = (e: any) => {
@@ -34,9 +36,7 @@ export default function ItemMenu({
         <p>{name}</p>
         <h1>${price}</h1>
         <div className={styles.button}>
-          <Button id={id} onClick={handleAdd}>
-            Add to cart
-          </Button>
+          <Button id={id} added={added} onClick={handleAdd}/>
         </div>
       </div>
     </div>

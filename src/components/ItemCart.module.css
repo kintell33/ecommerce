@@ -1,0 +1,32 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemContainer {
+    display: flex;
+    width: 90%;
+    gap:10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: flex-start;
+}
+
+.itemDetail {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.price {
+    font-weight: 600;
+}
+
+.line {
+    border-top: 1px solid #D7D7F9;
+    width: 80%;
+}
