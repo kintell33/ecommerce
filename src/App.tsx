@@ -57,13 +57,39 @@ function App() {
 
   const addItem = (id: number) => {
     let actualCart = structuredClone(cart);
-
     let item = actualCart.find((x: any) => x.id === id);
 
     if (!item) {
       actualCart.push(menu.find((x) => x.id === id));
       setCart(actualCart);
     }
+  };
+
+  const onAdd = (id: number) => {
+    let actualCart = structuredClone(cart);
+
+    actualCart = actualCart.map((e: any) => {
+      if (e.id === id) {
+        e.amount += 1;
+      }
+      return e;
+    });
+
+    setCart(actualCart);
+  };
+
+  const onRemove = (id: number) => {
+    let actualCart = structuredClone(cart);
+
+    actualCart = actualCart.map((e: any) => {
+      if (e.id === id) {
+        if (e.amount !== 0) e.amount -= 1;
+      }
+
+      return e;
+    });
+
+    setCart(actualCart);
   };
 
   const isInCart = (id: number) => {
@@ -73,10 +99,6 @@ function App() {
 
     return false;
   };
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
 
   return (
     <>
@@ -128,8 +150,8 @@ function App() {
                   price={e.price}
                   amount={e.amount}
                   id={e.id}
-                  onAdd={() => {}}
-                  onRemove={() => {}}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
                   key={i}
                 ></ItemCart>
               ))}

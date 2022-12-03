@@ -7,9 +7,9 @@
 
 .itemContainer {
     display: flex;
-    width: 90%;
+    width: 96%;
     gap:10px;
-    margin-left: 5%;
+    margin-left: 0%;
     margin-right: 5%;
     align-items: flex-start;
 }
@@ -29,4 +29,48 @@
 .line {
     border-top: 1px solid #D7D7F9;
     width: 80%;
+}
+
+.counter {
+    position: relative;
+    left:70px;
+    top:20px;
+    background-color: #000;
+    border-radius: 50px;
+    width: 40px;
+    height: 35px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemActions {
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    margin:10px;
+}
+
+.add {
+    background-color: #6B00F5;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove {
+    background-color: #6B00F5;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
