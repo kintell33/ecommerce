@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import ItemCart from "./components/ItemCart";
 import ItemMenu from "./components/ItemMenu";
 import cartIcon from "./assets/cart.svg";
+import Total from "./components/Total";
 
 const menu = [
   {
@@ -54,6 +55,7 @@ function getColor() {
 function App() {
   const [screen, setScreen] = useState(1);
   const [cart, setCart] = useState([]);
+  const [tax] = useState(0.0975);
 
   const addItem = (id: number) => {
     let actualCart = structuredClone(cart);
@@ -143,18 +145,27 @@ function App() {
           <div className={styles.items}>
             <h1 className={styles.title}>Your Cart</h1>
             <div className={styles.menu}>
-              {cart.map((e: any, i) => (
-                <ItemCart
-                  name={e.name}
-                  imageUrl={e.imageUrl}
-                  price={e.price}
-                  amount={e.amount}
-                  id={e.id}
-                  onAdd={onAdd}
-                  onRemove={onRemove}
-                  key={i}
-                ></ItemCart>
-              ))}
+              {cart.length > 0 ? (
+                <>
+                  {cart.map((e: any, i) => (
+                    <ItemCart
+                      name={e.name}
+                      imageUrl={e.imageUrl}
+                      price={e.price}
+                      amount={e.amount}
+                      id={e.id}
+                      onAdd={onAdd}
+                      onRemove={onRemove}
+                      key={i}
+                    ></ItemCart>
+                  ))}
+                  <div>
+                    <Total subtotal={cart.reduce((a:any, c:any) => a + (c.amount * c.price), 0)} tax={tax}/>
+                  </div>
+                </>
+              ) : (
+                <div className={styles.title}>Your cart is empty.</div>
+              )}
             </div>
           </div>
         )}

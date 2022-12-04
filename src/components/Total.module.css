@@ -1,0 +1,22 @@
+.container {
+    height: 200px;
+}
+
+.item {
+    display:flex;
+    justify-content: right;
+    margin-right: 20%;
+    align-items: center;
+    gap:10px;
+    font-size: 9vw;
+    font-weight: 700;
+}
+
+.item .total {
+    color:  #6B00F5;
+}
+
+.title {
+    font-size: 5vw;
+    font-weight: 700;
+}
